@@ -24,4 +24,15 @@ window.onload = function (){
 		boundary[4].setAttribute("class", "boundary youlose");
 	});
 	
+	
+	//Ex.3
+	var end = document.getElementById("end");
+	end.addEventListener("mouseover", function(){
+		if (winner){
+			alert("You Win!");
+		}
+	});	
+	
+	
+	
 }
