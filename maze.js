@@ -34,5 +34,17 @@ window.onload = function (){
 	});	
 	
 	
+	//Ex.4
+	var start = document.getElementById("start");
+	start.onclick = function(){
+		begin = true;
+		winner = true;
+		for (var x=0;x < walls.length;x++){
+			
+			walls[x].setAttribute("class","boundary");
+		}
+		
+	};
+	
 	
 }
