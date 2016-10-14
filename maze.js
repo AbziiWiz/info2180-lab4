@@ -2,6 +2,7 @@ window.onload = function (){
 	
 	
 	//Ex.1
+	//Turns each wall red
 	var boundary = document.getElementsByClassName("boundary");
 	boundary[0].addEventListener("mouseover", function(){
 		
@@ -25,7 +26,8 @@ window.onload = function (){
 	});
 	
 	
-	//Ex.2
+	/*Ex.2 and Ex.5
+	Turns all the walls red on hovering over one wall*/
 	var walls = document.querySelectorAll(".boundary");
 	var winner = true;
 	var begin;
@@ -48,7 +50,6 @@ window.onload = function (){
 	//Ex.3
 	var end = document.getElementById("end");
 	end.addEventListener("mouseover", function(){
-		//Can also be if(!winner)
 		if (winner){
 			
 				ele.textContent = "You Win!";
@@ -56,21 +57,76 @@ window.onload = function (){
 	});
 
 	
-	//Ex.4
+	//Ex.4 and Ex.5
 	var start = document.getElementById("start");
+	var maze = document.getElementById("maze");
+	var left = maze.offsetLeft;
+	var maze_top = maze.offsetTop;
+	var height = maze.offsetHeight;
+	var width = maze.offsetWidth;
 	start.onclick = function(){
 		begin = true;
 		
-		for (var x=0;x < walls.length;x++){
+		if (begin){	//Ensures game has started first 					
+			//Ex.6 of the assignment
+			document.onmousemove = function(event){
+				
+				var x = event.clientX;
+				var y = event.clientY;
+				
+				//Indicates if pointer is outside of maze
+				if (x < left){
+					
+					for (var n = 0; n< walls.length; n++){
+					walls[n].setAttribute("class","boundary youlose");
+					}
+					ele.textContent = "You lose!";
+					winner = false;
+					begin = false;
+				}
+				else if (y > (height + event.clientY)){
+					
+					for (var n = 0; n< walls.length; n++){
+					walls[n].setAttribute("class","boundary youlose");
+					}
+					ele.textContent = "You lose! :^(";
+					winner = false;
+					begin = false;
+				}	
+				else if (y < maze_top){
+					
+					for (var n = 0; n< walls.length; n++){
+					walls[n].setAttribute("class","boundary youlose");
+					}
+					ele.textContent = "You lose! :^(";
+					winner = false;
+					begin = false;
+				}
+				else if (x > (width + event.clientX)){
+					
+					for (var n = 0; n< walls.length; n++){
+					walls[n].setAttribute("class","boundary youlose");
+					}
+					ele.textContent = "You lose! :^(";
+					winner = false;
+					begin = false;
+				}
+			}
 			
-			walls[x].classList.remove("youlose");
-			//walls[x].setAttribute("class","boundary");
+			//Resets game to initial state
+			if (!(winner)){
+				for (var a=0; a<walls.length;a++){
+				
+					walls[a].setAttribute("class","boundary");
+				}
+					ele.textContent ='Mouse your mouse over the "S" to begin.';
+					winner= true;
+			
+			}	
 		}
-		
-		ele.textContent ='Mouse your mouse over the "S" to begin.';
-		winner = true;
 	};
-
+}
 
 	
-}
+	
+	
