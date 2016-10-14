@@ -38,12 +38,13 @@ window.onload = function (){
 	var start = document.getElementById("start");
 	start.onclick = function(){
 		begin = true;
-		winner = true;
+		
 		for (var x=0;x < walls.length;x++){
 			
-			walls[x].setAttribute("class","boundary");
+			walls[x].classList.remove("youlose");
+			//walls[x].setAttribute("class","boundary");
 		}
-		
+		winner = true;
 	};
 	
 	
