@@ -1,7 +1,23 @@
 window.onload = function (){
 	
+	var walls = document.querySelectorAll(".boundary");
+	var winner = true;
+	var begin;
+	var ele = document.getElementById("status");
+	var page = document.getElementsByTagName("body");
+	var start = document.getElementById("start");
+	var maze = document.getElementById("maze");
+	var left = maze.offsetLeft;
+	var maze_top = maze.offsetTop;
+	var height = maze.offsetHeight;
+	var width = maze.offsetWidth;
 	
-	//Ex.1
+	
+	//Ex.4 and Ex.5
+	start.onclick = function(){
+		begin = true;
+	
+		//Ex.1
 	//Turns each wall red
 	var boundary = document.getElementsByClassName("boundary");
 	boundary[0].addEventListener("mouseover", function(){
@@ -26,48 +42,25 @@ window.onload = function (){
 	});
 	
 	
-	/*Ex.2 and Ex.5
-	Turns all the walls red on hovering over one wall*/
-	var walls = document.querySelectorAll(".boundary");
-	var winner = true;
-	var begin;
-	var ele = document.getElementById("status");
-	for (var i=0; i<walls.length; i++){
-		walls[i].addEventListener("mouseover", function()
-		{
-			for (var j=0; j< walls.length;j++){
-				walls[j].setAttribute("class", "boundary youlose");
-				
-			}
-			begin = false;
-			winner = false;
-			ele.textContent = "You lose :^(";
-			
-		});
-	}
-	
-	
-	//Ex.3
-	var end = document.getElementById("end");
-	end.addEventListener("mouseover", function(){
-		if (winner){
-			
-				ele.textContent = "You Win!";
-		}
-	});
-
-	
-	//Ex.4 and Ex.5
-	var start = document.getElementById("start");
-	var maze = document.getElementById("maze");
-	var left = maze.offsetLeft;
-	var maze_top = maze.offsetTop;
-	var height = maze.offsetHeight;
-	var width = maze.offsetWidth;
-	start.onclick = function(){
-		begin = true;
-		
 		if (begin){	//Ensures game has started first 					
+			
+					/*Ex.2 and Ex.5
+					Turns all the walls red on hovering over one wall*/
+					for (var i=0; i<walls.length; i++){
+						walls[i].addEventListener("mouseover", function(){
+			
+							for (var j=0; j< walls.length;j++){
+								walls[j].setAttribute("class", "boundary youlose");
+				
+							}
+								ele.textContent = "You lose :^(";
+								begin = false;
+								winner = false;
+						});	
+					}
+			
+			
+			
 			//Ex.6 of the assignment
 			document.onmousemove = function(event){
 				
@@ -123,8 +116,22 @@ window.onload = function (){
 					winner= true;
 			
 			}	
+			
+			//Ex.3
+			var end = document.getElementById("end");
+			end.addEventListener("mouseover", function(){
+				if (winner){
+			
+					ele.textContent = "You Win!";
+					begin = false;
+				
+				}
+			});
+			
+			
 		}
 	};
+	
 }
 
 	
