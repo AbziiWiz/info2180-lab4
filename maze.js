@@ -12,53 +12,50 @@ window.onload = function (){
 	var height = maze.offsetHeight;
 	var width = maze.offsetWidth;
 	
-	
 	//Ex.4 and Ex.5
 	start.onclick = function(){
-		begin = true;
+		
+			begin = true;
 	
-		//Ex.1
-	//Turns each wall red
-	var boundary = document.getElementsByClassName("boundary");
-	boundary[0].addEventListener("mouseover", function(){
+			//Ex.1
+			//Turns each wall red
+			var boundary = document.getElementsByClassName("boundary");
+			boundary[0].addEventListener("mouseover", function(){
 		
-		boundary[0].setAttribute("class", "boundary youlose");
-	});
-	boundary[1].addEventListener("mouseover", function(){
+				boundary[0].setAttribute("class", "boundary youlose");
+			});
+			boundary[1].addEventListener("mouseover", function(){
 		
-		boundary[1].setAttribute("class", "boundary youlose");
-	});
-	boundary[2].addEventListener("mouseover", function(){
+				boundary[1].setAttribute("class", "boundary youlose");
+			});
+			boundary[2].addEventListener("mouseover", function(){
 		
-		boundary[2].setAttribute("class", "boundary youlose");
-	});
-	boundary[3].addEventListener("mouseover", function(){
+				boundary[2].setAttribute("class", "boundary youlose");
+			});
+			boundary[3].addEventListener("mouseover", function(){
 		
-		boundary[3].setAttribute("class", "boundary youlose");
-	});
-	boundary[4].addEventListener("mouseover", function(){
+				boundary[3].setAttribute("class", "boundary youlose");
+			});
+			boundary[4].addEventListener("mouseover", function(){
 		
-		boundary[4].setAttribute("class", "boundary youlose");
-	});
-	
-	
-		if (begin){	//Ensures game has started first 					
+				boundary[4].setAttribute("class", "boundary youlose");
+			});
+						
 			
-					/*Ex.2 and Ex.5
-					Turns all the walls red on hovering over one wall*/
-					for (var i=0; i<walls.length; i++){
-						walls[i].addEventListener("mouseover", function(){
+			/*Ex.2 and Ex.5
+			Turns all the walls red on hovering over one wall*/
+			for (var i=0; i<walls.length; i++){
+				walls[i].addEventListener("mouseover", function(){
 			
-							for (var j=0; j< walls.length;j++){
-								walls[j].setAttribute("class", "boundary youlose");
-				
-							}
-								ele.textContent = "You lose :^(";
-								begin = false;
-								winner = false;
-						});	
+					for (var j=0; j< walls.length;j++){
+					
+						walls[j].setAttribute("class", "boundary youlose");
 					}
-			
+					ele.textContent = "You lose :^(";
+					begin = false;
+					winner = false;
+				});	
+			}
 			
 			
 			//Ex.6 of the assignment
@@ -104,7 +101,7 @@ window.onload = function (){
 					winner = false;
 					begin = false;
 				}
-			}
+			};
 			
 			//Resets game to initial state
 			if (!(winner)){
@@ -127,12 +124,9 @@ window.onload = function (){
 				
 				}
 			});
-			
-			
-		}
 	};
 	
-}
+};
 
 	
 	
