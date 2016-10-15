@@ -12,6 +12,7 @@ window.onload = function (){
 	var height = maze.offsetHeight;
 	var width = maze.offsetWidth;
 	
+	
 	//Ex.4 and Ex.5
 	start.onclick = function(){
 		
@@ -44,18 +45,22 @@ window.onload = function (){
 			
 			/*Ex.2 and Ex.5
 			Turns all the walls red on hovering over one wall*/
-			for (var i=0; i<walls.length; i++){
-				walls[i].addEventListener("mouseover", function(){
 			
-					for (var j=0; j< walls.length;j++){
+				for (var i=0; i<walls.length; i++){
+					walls[i].addEventListener("mouseover", function(){
+						
+							for (var j=0; j< walls.length;j++){
 					
-						walls[j].setAttribute("class", "boundary youlose");
-					}
-					ele.textContent = "You lose :^(";
-					begin = false;
-					winner = false;
-				});	
-			}
+								walls[j].setAttribute("class", "boundary youlose");
+							}
+							ele.textContent = "You lose :^(";
+							begin = false;
+							winner = false;
+							
+						
+					});
+				}
+			
 			
 			
 			//Ex.6 of the assignment
@@ -70,7 +75,7 @@ window.onload = function (){
 					for (var n = 0; n< walls.length; n++){
 					walls[n].setAttribute("class","boundary youlose");
 					}
-					ele.textContent = "You lose!";
+					ele.textContent = "You lose:^(";
 					winner = false;
 					begin = false;
 				}
@@ -79,7 +84,7 @@ window.onload = function (){
 					for (var n = 0; n< walls.length; n++){
 					walls[n].setAttribute("class","boundary youlose");
 					}
-					ele.textContent = "You lose! :^(";
+					ele.textContent = "You lose :^(";
 					winner = false;
 					begin = false;
 				}	
@@ -88,7 +93,7 @@ window.onload = function (){
 					for (var n = 0; n< walls.length; n++){
 					walls[n].setAttribute("class","boundary youlose");
 					}
-					ele.textContent = "You lose! :^(";
+					ele.textContent = "You lose :^(";
 					winner = false;
 					begin = false;
 				}
@@ -97,7 +102,7 @@ window.onload = function (){
 					for (var n = 0; n< walls.length; n++){
 					walls[n].setAttribute("class","boundary youlose");
 					}
-					ele.textContent = "You lose! :^(";
+					ele.textContent = "You lose :^(";
 					winner = false;
 					begin = false;
 				}
@@ -123,6 +128,7 @@ window.onload = function (){
 					begin = false;
 				
 				}
+				
 			});
 	};
 	
